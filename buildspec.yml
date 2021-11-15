@@ -8,8 +8,12 @@ phases:
   pre_build:
     commands:
       - docker build -t helloworld_build .
+      - pwd
+      - ls -a
   build:
     commands:
+      - pwd
+      - ls -a
       - docker images
       - docker run helloworld_build
       - docker save -o helloworld_build.tar helloworld_build
@@ -18,6 +22,8 @@ phases:
     commands:
       - echo "Sono in Post Build"
       - docker run helloworld_build echo "sono in run in post build"
+      - pwd
+      - ls -a
       
       
 artifacts:
